@@ -1,0 +1,23 @@
+
+<li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell" style="color:red ;font-size:2em"></i>   <!--Notification icon  -->
+                                
+                                 {{ count(auth()->user()->unreadNotifications )  }}
+                                 
+                              </a>
+
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                    @foreach (auth()->user()->unreadNotifications as $notification) 
+                                       
+                                
+                                        <a class="dropdown-item" href="#"> {{ $notification->data['user']['name'] }}  a commenter sur votre publication  </a>
+                              
+  
+                                    @endforeach
+
+
+                              </div>
+
+                            </li>
